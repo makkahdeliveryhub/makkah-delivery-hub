@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://makkahdeliveryhub.github.io/makkah-delivery-hub/sitemap.xml
