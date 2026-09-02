@@ -1,0 +1,2868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Makkah Delivery Hub | Food Delivery in Makkah</title>
+
+<meta name="description" content="Order food from your favorite restaurant in Makkah. We buy it for you and deliver it to your hotel or location.">
+<meta name="theme-color" content="#087f5b">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --green:#087f5b;
+  --green-dark:#056044;
+  --green-light:#eaf8f2;
+  --gold:#c79a3b;
+  --dark:#10231d;
+  --text:#34413c;
+  --muted:#71807a;
+  --white:#fff;
+  --bg:#f7faf8;
+  --border:#e2ebe7;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+  line-height:1.6;
+}
+
+body.rtl{
+  direction:rtl;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
+}
+
+.container{
+  width:92%;
+  max-width:1120px;
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(10px);
+}
+
+.nav{
+  min-height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:800;
+  color:var(--green);
+}
+
+.logo span{
+  color:var(--dark);
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.lang{
+  border:1px solid var(--border);
+  background:white;
+  padding:8px 14px;
+  border-radius:25px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.nav-order{
+  background:var(--green);
+  color:white;
+  padding:9px 15px;
+  border-radius:9px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:75px 0 70px;
+  background:
+    radial-gradient(circle at 10% 20%,rgba(8,127,91,.13),transparent 30%),
+    radial-gradient(circle at 90% 10%,rgba(199,154,59,.10),transparent 25%),
+    linear-gradient(135deg,#effaf5,#ffffff);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  align-items:center;
+  gap:45px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:#dcf4e9;
+  color:var(--green-dark);
+  border:1px solid #c7eadb;
+  padding:7px 13px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(40px,6vw,68px);
+  line-height:1.05;
+  letter-spacing:-1.5px;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:var(--green);
+}
+
+.hero-text{
+  max-width:620px;
+  color:var(--muted);
+  font-size:17px;
+  margin-bottom:27px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 22px;
+  border-radius:11px;
+  font-weight:bold;
+  font-size:15px;
+  transition:.2s;
+}
+
+.btn-primary{
+  background:var(--green);
+  color:white;
+  box-shadow:0 8px 20px rgba(8,127,91,.22);
+}
+
+.btn-primary:hover{
+  background:var(--green-dark);
+}
+
+.btn-secondary{
+  background:white;
+  color:var(--green);
+  border:1px solid #cde2da;
+}
+
+.hero-note{
+  margin-top:17px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* HERO CARD */
+
+.hero-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:25px;
+  box-shadow:0 20px 50px rgba(16,35,29,.10);
+}
+
+.hero-card-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.status{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:var(--green);
+  font-size:13px;
+  font-weight:bold;
+}
+
+.dot{
+  width:9px;
+  height:9px;
+  background:#21b477;
+  border-radius:50%;
+}
+
+.food-icon{
+  width:100%;
+  height:185px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#dff5eb,#f8fcfa);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:88px;
+  margin-bottom:18px;
+}
+
+.hero-card h3{
+  font-size:21px;
+  margin-bottom:5px;
+}
+
+.hero-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.mini-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:18px;
+}
+
+.mini-box{
+  background:var(--green-light);
+  padding:12px;
+  border-radius:11px;
+  font-size:13px;
+}
+
+.mini-box strong{
+  display:block;
+  color:var(--green-dark);
+  font-size:15px;
+}
+
+/* TRUST */
+
+.trust{
+  background:white;
+  border-bottom:1px solid var(--border);
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.trust-item{
+  padding:20px 12px;
+  text-align:center;
+  border-right:1px solid var(--border);
+}
+
+body.rtl .trust-item{
+  border-right:0;
+  border-left:1px solid var(--border);
+}
+
+.trust-item:last-child{
+  border:0;
+}
+
+.trust-item strong{
+  display:block;
+  font-size:14px;
+}
+
+.trust-item span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* SECTIONS */
+
+section{
+  padding:70px 0;
+}
+
+.section-head{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 35px;
+}
+
+.section-head h2{
+  font-size:34px;
+  margin-bottom:8px;
+}
+
+.section-head p{
+  color:var(--muted);
+}
+
+/* HOW */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.step{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:25px 18px;
+  text-align:center;
+  transition:.2s;
+}
+
+.step:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(16,35,29,.07);
+}
+
+.step-number{
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 14px;
+  background:var(--green-light);
+  color:var(--green);
+  border-radius:50%;
+  font-weight:800;
+}
+
+.step-icon{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.step h3{
+  font-size:17px;
+  margin-bottom:6px;
+}
+
+.step p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* CTA */
+
+.order-cta{
+  background:var(--green);
+  color:white;
+  border-radius:25px;
+  padding:42px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.order-cta h2{
+  font-size:30px;
+  margin-bottom:7px;
+}
+
+.order-cta p{
+  color:#d5eee5;
+}
+
+.order-cta .btn{
+  background:white;
+  color:var(--green);
+  white-space:nowrap;
+}
+
+/* RESTAURANTS */
+
+.restaurants{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.restaurant{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  font-weight:bold;
+}
+
+.restaurant-icon{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  background:var(--green-light);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+}
+
+/* ORDER FORM */
+
+.order-section{
+  background:#edf8f3;
+}
+
+.order-box{
+  max-width:800px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:22px;
+  box-shadow:0 15px 45px rgba(16,35,29,.08);
+  border:1px solid var(--border);
+}
+
+.form-group{
+  margin-bottom:17px;
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  font-size:14px;
+  margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #d7e3de;
+  border-radius:10px;
+  background:white;
+  font-size:15px;
+  outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(8,127,91,.08);
+}
+
+textarea{
+  min-height:105px;
+  resize:vertical;
+}
+
+.fee{
+  background:#f0faf5;
+  border:1px solid #cce9db;
+  padding:16px;
+  border-radius:11px;
+  margin:20px 0;
+}
+
+.fee strong{
+  color:var(--green);
+}
+
+.order-summary{
+  display:none;
+  background:#f7faf8;
+  border:1px solid #dce9e3;
+  border-radius:12px;
+  padding:18px;
+  margin-bottom:18px;
+}
+
+.order-summary h3{
+  margin-bottom:12px;
+}
+
+.summary-row{
+  display:flex;
+  gap:8px;
+  padding:5px 0;
+  border-bottom:1px solid #e5eeea;
+}
+
+.summary-row:last-child{
+  border-bottom:0;
+}
+
+.summary-label{
+  font-weight:bold;
+  min-width:145px;
+}
+
+.whatsapp{
+  width:100%;
+  border:0;
+  border-radius:11px;
+  padding:15px;
+  background:#25d366;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* AREAS */
+
+.areas-section{
+  background:white;
+}
+
+.areas{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.area{
+  background:#f7faf8;
+  border:1px solid var(--border);
+  padding:10px 15px;
+  border-radius:30px;
+  font-size:14px;
+}
+
+/* FAQ */
+
+.faq{
+  max-width:800px;
+  margin:auto;
+}
+
+details{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:17px;
+  margin-bottom:10px;
+}
+
+summary{
+  cursor:pointer;
+  font-weight:bold;
+}
+
+details p{
+  color:var(--muted);
+  margin-top:10px;
+  font-size:14px;
+}
+
+/* FOOTER */
+
+footer{
+  background:#0c211a;
+  color:white;
+  padding:45px 0 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:30px;
+}
+
+footer h3{
+  margin-bottom:10px;
+}
+
+footer p{
+  color:#b8c9c2;
+  font-size:14px;
+}
+
+.footer-link{
+  display:block;
+  color:#dceae5;
+  margin-bottom:8px;
+  font-size:14px;
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.12);
+  margin-top:30px;
+  padding-top:20px;
+  text-align:center;
+  color:#91a59d;
+  font-size:12px;
+}
+
+/* FLOATING WHATSAPP */
+
+.float-wa{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:999;
+  width:57px;
+  height:57px;
+  border-radius:50%;
+  background:#25d366;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+body.rtl .float-wa{
+  right:auto;
+  left:18px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-card{
+    max-width:560px;
+    margin:auto;
+  }
+
+  .steps{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .trust-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .trust-item:nth-child(2){
+    border-right:0;
+  }
+
+  body.rtl .trust-item:nth-child(2){
+    border-left:0;
+  }
+
+  .order-cta{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:550px){
+
+  section{
+    padding:55px 0;
+  }
+
+  .hero{
+    padding:50px 0 55px;
+  }
+
+  .hero h1{
+    font-size:43px;
+  }
+
+  .hero-text{
+    font-size:15px;
+  }
+
+  .nav-order{
+    display:none;
+  }
+
+  .steps,
+  .restaurants{
+    grid-template-columns:1fr;
+  }
+
+  .order-box{
+    padding:20px;
+  }
+
+  .order-cta{
+    padding:28px 22px;
+  }
+
+  .order-cta h2{
+    font-size:25px;
+  }
+
+  .food-icon{
+    height:155px;
+  }
+
+  .summary-row{
+    display:block;
+  }
+
+  .summary-label{
+    display:block;
+    margin-bottom:2px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="container nav">
+
+    <a href="#" class="logo">
+      Makkah <span>Delivery Hub</span>
+    </a>
+
+    <div class="nav-right">
+
+      <a href="#order"
+         class="nav-order"
+         id="navOrder">
+        Order Now
+      </a>
+
+      <button
+        class="lang"
+        onclick="toggleLanguage()"
+        id="langBtn">
+        العربية
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+    <div>
+
+      <div class="badge" id="badge">
+        🕋 Food Delivery Service in Makkah
+      </div>
+
+      <h1 id="heroTitle">
+        Your Favorite Food.<br>
+        <span>Delivered to You.</span>
+      </h1>
+
+      <p class="hero-text" id="heroText">
+        Choose any restaurant you like. We buy your food and deliver it directly to your hotel or location in Makkah.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#order"
+           class="btn btn-primary"
+           id="heroOrder">
+          🍔 Order Food
+        </a>
+
+        <a href="https://wa.me/966550865064"
+           class="btn btn-secondary"
+           target="_blank"
+           rel="noopener">
+          📱 WhatsApp
+        </a>
+
+      </div>
+
+      <div class="hero-note" id="heroNote">
+        Service fee starts from 30 SAR • Food cost is separate
+      </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <div class="hero-card-top">
+
+        <strong id="cardTitle">
+          Makkah Food Delivery
+        </strong>
+
+        <div class="status">
+          <span class="dot"></span>
+          <span id="available">
+            Available
+          </span>
+        </div>
+
+      </div>
+
+      <div class="food-icon">
+        🍔🍟🥤
+      </div>
+
+      <h3 id="cardHeading">
+        From your restaurant to your hotel
+      </h3>
+
+      <p id="cardText">
+        Tell us what you want. We handle the pickup and delivery for you.
+      </p>
+
+      <div class="mini-row">
+
+        <div class="mini-box">
+          <strong>30 SAR+</strong>
+          <span id="feeSmall">
+            Service fee
+          </span>
+        </div>
+
+        <div class="mini-box">
+          <strong>WhatsApp</strong>
+          <span id="orderSmall">
+            Easy ordering
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TRUST -->
+
+<div class="trust">
+
+  <div class="container trust-grid">
+
+    <div class="trust-item">
+      <strong id="trustStrong1">
+        🍔 Any Restaurant
+      </strong>
+      <span id="trust1">
+        Your choice
+      </span>
+    </div>
+
+    <div class="trust-item">
+      <strong id="trustStrong2">
+        🏨 Hotel Delivery
+      </strong>
+      <span id="trust2">
+        Makkah hotels
+      </span>
+    </div>
+
+    <div class="trust-item">
+      <strong id="trustStrong3">
+        📍 Your Location
+      </strong>
+      <span id="trust3">
+        Easy delivery
+      </span>
+    </div>
+
+    <div class="trust-item">
+      <strong id="trustStrong4">
+        📱 WhatsApp
+      </strong>
+      <span id="trust4">
+        Simple ordering
+      </span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- HOW IT WORKS -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <h2 id="howTitle">
+        How It Works
+      </h2>
+
+      <p id="howText">
+        Ordering your favorite food in Makkah is simple.
+      </p>
+
+    </div>
+
+
+    <div class="steps">
+
+      <div class="step">
+
+        <div class="step-number">1</div>
+
+        <div class="step-icon">🍽️</div>
+
+        <h3 id="s1Title">
+          Choose a Restaurant
+        </h3>
+
+        <p id="s1Text">
+          Choose your favorite restaurant or tell us another one.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">2</div>
+
+        <div class="step-icon">📝</div>
+
+        <h3 id="s2Title">
+          Send Your Order
+        </h3>
+
+        <p id="s2Text">
+          Tell us exactly what food you want.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">3</div>
+
+        <div class="step-icon">🛍️</div>
+
+        <h3 id="s3Title">
+          We Buy It
+        </h3>
+
+        <p id="s3Text">
+          We purchase your order from the restaurant.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">4</div>
+
+        <div class="step-icon">🚴</div>
+
+        <h3 id="s4Title">
+          We Deliver
+        </h3>
+
+        <p id="s4Text">
+          We bring your order to your hotel or location.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section style="padding-top:0">
+
+  <div class="container">
+
+    <div class="order-cta">
+
+      <div>
+
+        <h2 id="ctaTitle">
+          Hungry? Let's get your food.
+        </h2>
+
+        <p id="ctaText">
+          Order from your favorite restaurant in Makkah today.
+        </p>
+
+      </div>
+
+      <a href="#order"
+         class="btn"
+         id="ctaButton">
+        Order Now →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- RESTAURANTS -->
+
+<section style="background:#fff">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <h2 id="restTitle">
+        Popular Restaurants
+      </h2>
+
+      <p id="restText">
+        You can request food from these or any other restaurant.
+      </p>
+
+    </div>
+
+
+    <div class="restaurants">
+
+      <div class="restaurant">
+        <div class="restaurant-icon">🍗</div>
+        <span>البيك · Al Baik</span>
+      </div>
+
+      <div class="restaurant">
+        <div class="restaurant-icon">🍔</div>
+        <span>McDonald's</span>
+      </div>
+
+      <div class="restaurant">
+        <div class="restaurant-icon">🍗</div>
+        <span>الطازج · Al Tazaj</span>
+      </div>
+
+      <div class="restaurant">
+        <div class="restaurant-icon">🍔</div>
+        <span>Kudu · كودو</span>
+      </div>
+
+      <div class="restaurant">
+        <div class="restaurant-icon">🍚</div>
+        <span>الرومانسية · Al Romansiah</span>
+      </div>
+
+      <div class="restaurant">
+        <div class="restaurant-icon">➕</div>
+        <span id="otherRestaurant">
+          Other Restaurant
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ORDER FORM -->
+
+<section class="order-section" id="order">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <h2 id="orderTitle">
+        Place Your Order
+      </h2>
+
+      <p id="orderText">
+        Tell us what you want and we will buy it from the restaurant and deliver it to you.
+      </p>
+
+    </div>
+
+
+    <div class="order-box">
+
+
+      <div class="form-group">
+
+        <label id="nameLabel">
+          👤 Your Name
+        </label>
+
+        <input
+          id="customerName"
+          type="text"
+          placeholder="Enter your name">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label id="phoneLabel">
+          📱 Your WhatsApp Number
+        </label>
+
+        <input
+          id="customerPhone"
+          type="tel"
+          placeholder="+966 5XXXXXXXX">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label id="restaurantLabel">
+          🍽️ Restaurant
+        </label>
+
+        <select id="restaurant">
+
+          <option value="" id="restaurantDefault">
+            Select Restaurant
+          </option>
+
+          <option value="Al Baik - البيك">
+            Al Baik - البيك
+          </option>
+
+          <option value="McDonald's - ماكدونالز">
+            McDonald's - ماكدونالز
+          </option>
+
+          <option value="Al Tazaj - الطازج">
+            Al Tazaj - الطازج
+          </option>
+
+          <option value="Kudu - كودو">
+            Kudu - كودو
+          </option>
+
+          <option value="Al Romansiah - الرومانسية">
+            Al Romansiah - الرومانسية
+          </option>
+
+          <option value="Other Restaurant">
+            Other Restaurant
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label id="foodLabel">
+          📝 Food Order
+        </label>
+
+        <textarea
+          id="foodOrder"
+          placeholder="Example: Chicken Burger, Fries, Pepsi"></textarea>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label id="quantityLabel">
+          🔢 Quantity
+        </label>
+
+        <input
+          id="quantity"
+          type="number"
+          min="1"
+          value="1"
+          placeholder="How many items?">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label id="hotelLabel">
+          🏨 Hotel / Delivery Location
+        </label>
+
+        <input
+          id="hotel"
+          type="text"
+          placeholder="Hotel name or delivery location">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label id="roomLabel">
+          🚪 Room Number
+        </label>
+
+        <input
+          id="room"
+          type="text"
+          placeholder="Example: 805">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label id="locationLabel">
+          📍 Google Maps Location / Address
+        </label>
+
+        <textarea
+          id="location"
+          placeholder="Paste your Google Maps link or write your address"></textarea>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label id="deliveryTimeLabel">
+          🕐 Preferred Delivery Time
+        </label>
+
+        <input
+          id="deliveryTime"
+          type="text"
+          placeholder="Example: As soon as possible / 8:00 PM">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label id="notesLabel">
+          📝 Special Instructions
+        </label>
+
+        <textarea
+          id="notes"
+          placeholder="Any special request?"></textarea>
+
+      </div>
+
+
+      <div class="fee">
+
+        <strong id="feeTitle">
+          💰 Service & Delivery Fee
+        </strong>
+
+        <br>
+
+        <span id="feeText">
+          Service fee starts from
+          <b>30 SAR</b>.
+          Food price is separate and will be confirmed before purchase.
+        </span>
+
+      </div>
+
+
+      <!-- ORDER SUMMARY -->
+
+      <div
+        id="orderSummary"
+        class="order-summary">
+
+        <h3 id="summaryTitle">
+          📋 Order Summary
+        </h3>
+
+        <div id="summaryContent"></div>
+
+      </div>
+
+
+      <!-- REVIEW BUTTON -->
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        onclick="showOrderSummary()"
+        id="reviewButton"
+        style="width:100%;border:0;cursor:pointer;">
+
+        👀 Review Order
+
+      </button>
+
+
+      <!-- WHATSAPP BUTTON -->
+
+      <button
+        type="button"
+        class="whatsapp"
+        onclick="sendOrder()"
+        id="sendButton"
+        style="margin-top:12px;">
+
+        📱 Confirm & Send to WhatsApp
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- AREAS -->
+
+<section class="areas-section">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <h2 id="areaTitle">
+        Makkah Delivery Areas
+      </h2>
+
+      <p id="areaText">
+        We focus on hotels and customer locations in central Makkah.
+      </p>
+
+    </div>
+
+
+    <div class="areas">
+
+      <div class="area" id="area1">
+        🕋 Clock Tower
+      </div>
+
+      <div class="area" id="area2">
+        🏨 Ajyad
+      </div>
+
+      <div class="area" id="area3">
+        🏨 Jabal Omar
+      </div>
+
+      <div class="area" id="area4">
+        🏨 Ibrahim Al Khalil
+      </div>
+
+      <div class="area" id="area5">
+        🏨 Central Makkah
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <h2 id="faqTitle">
+        Frequently Asked Questions
+      </h2>
+
+    </div>
+
+
+    <div class="faq">
+
+      <details>
+
+        <summary id="q1">
+          Do you have your own restaurant?
+        </summary>
+
+        <p id="a1">
+          No. We are a food purchasing and delivery service. We buy food from the restaurant you choose and deliver it to you.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary id="q2">
+          How much is the service fee?
+        </summary>
+
+        <p id="a2">
+          Our service fee starts from 30 SAR. The food price is separate.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary id="q3">
+          Can I order from another restaurant?
+        </summary>
+
+        <p id="a3">
+          Yes. Simply write the restaurant name and your food order.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary id="q4">
+          Can I send my hotel location?
+        </summary>
+
+        <p id="a4">
+          Yes. You can provide your Google Maps link or your hotel/address details.
+        </p>
+
+      </details>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container footer-grid">
+
+
+    <div>
+
+      <h3>
+        Makkah Delivery Hub
+      </h3>
+
+      <p id="footerAbout">
+        Food purchasing and delivery service in Makkah. We bring food from your favorite restaurant to your location.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3 id="footerService">
+        Service
+      </h3>
+
+      <a href="#order"
+         class="footer-link"
+         id="footerOrder">
+        Order Food
+      </a>
+
+      <a href="#order"
+         class="footer-link"
+         id="footerFee">
+        Service Fee
+      </a>
+
+      <a href="#faq"
+         class="footer-link"
+         id="footerFaq">
+        FAQ
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h3 id="footerContact">
+        Contact
+      </h3>
+
+      <a
+        href="https://wa.me/966550865064"
+        class="footer-link"
+        target="_blank"
+        rel="noopener">
+
+        📱 +966 55 086 5064
+
+      </a>
+
+      <a
+        href="https://wa.me/966550865064"
+        class="footer-link"
+        target="_blank"
+        rel="noopener">
+
+        WhatsApp
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="container footer-bottom">
+
+    © 2026 Makkah Delivery Hub · Makkah, Saudi Arabia
+
+  </div>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+  href="https://wa.me/966550865064"
+  class="float-wa"
+  aria-label="WhatsApp"
+  target="_blank"
+  rel="noopener">
+
+  ☎
+
+</a>
+
+
+<script>
+
+/* =========================
+   LANGUAGE
+========================= */
+
+let arabic = false;
+
+
+function toggleLanguage(){
+
+  arabic = !arabic;
+
+  document.body.classList.toggle("rtl", arabic);
+
+  document.documentElement.lang = arabic ? "ar" : "en";
+
+  document.getElementById("langBtn").textContent =
+    arabic ? "English" : "العربية";
+
+
+  if(arabic){
+
+    /* HEADER */
+
+    setText("navOrder","اطلب الآن");
+
+
+    /* HERO */
+
+    setText(
+      "badge",
+      "🕋 خدمة توصيل الطعام في مكة"
+    );
+
+    setHTML(
+      "heroTitle",
+      "طعامك المفضل.<br><span>نوصله إليك.</span>"
+    );
+
+    setText(
+      "heroText",
+      "اختر أي مطعم تريده. نشتري لك الطعام ونوصله مباشرة إلى فندقك أو موقعك في مكة."
+    );
+
+    setText(
+      "heroOrder",
+      "🍔 اطلب الطعام"
+    );
+
+    setText(
+      "heroNote",
+      "رسوم الخدمة تبدأ من 30 ريال • سعر الطعام منفصل"
+    );
+
+    setText(
+      "cardTitle",
+      "توصيل الطعام في مكة"
+    );
+
+    setText(
+      "available",
+      "متاح"
+    );
+
+    setText(
+      "cardHeading",
+      "من مطعمك إلى فندقك"
+    );
+
+    setText(
+      "cardText",
+      "أخبرنا بما تريد وسنتولى شراء الطعام وتوصيله إليك."
+    );
+
+    setText(
+      "feeSmall",
+      "رسوم الخدمة"
+    );
+
+    setText(
+      "orderSmall",
+      "طلب سهل"
+    );
+
+
+    /* TRUST */
+
+    setText(
+      "trustStrong1",
+      "🍔 أي مطعم"
+    );
+
+    setText(
+      "trust1",
+      "اختيارك"
+    );
+
+    setText(
+      "trustStrong2",
+      "🏨 توصيل للفندق"
+    );
+
+    setText(
+      "trust2",
+      "فنادق مكة"
+    );
+
+    setText(
+      "trustStrong3",
+      "📍 موقعك"
+    );
+
+    setText(
+      "trust3",
+      "توصيل سهل"
+    );
+
+    setText(
+      "trustStrong4",
+      "📱 واتساب"
+    );
+
+    setText(
+      "trust4",
+      "طلب سريع"
+    );
+
+
+    /* HOW */
+
+    setText(
+      "howTitle",
+      "كيف تعمل الخدمة؟"
+    );
+
+    setText(
+      "howText",
+      "طلب طعامك المفضل في مكة أصبح سهلاً."
+    );
+
+    setText(
+      "s1Title",
+      "اختر المطعم"
+    );
+
+    setText(
+      "s1Text",
+      "اختر مطعمك المفضل أو أخبرنا بمطعم آخر."
+    );
+
+    setText(
+      "s2Title",
+      "أرسل طلبك"
+    );
+
+    setText(
+      "s2Text",
+      "أخبرنا بالتفصيل بالطعام الذي تريده."
+    );
+
+    setText(
+      "s3Title",
+      "نشتري الطعام"
+    );
+
+    setText(
+      "s3Text",
+      "نشتري طلبك من المطعم."
+    );
+
+    setText(
+      "s4Title",
+      "نوصل الطلب"
+    );
+
+    setText(
+      "s4Text",
+      "نوصل الطلب إلى فندقك أو موقعك."
+    );
+
+
+    /* CTA */
+
+    setText(
+      "ctaTitle",
+      "جائع؟ دعنا نحضر لك طعامك."
+    );
+
+    setText(
+      "ctaText",
+      "اطلب من مطعمك المفضل في مكة اليوم."
+    );
+
+    setText(
+      "ctaButton",
+      "اطلب الآن ←"
+    );
+
+
+    /* RESTAURANTS */
+
+    setText(
+      "restTitle",
+      "المطاعم المشهورة"
+    );
+
+    setText(
+      "restText",
+      "يمكنك الطلب من هذه المطاعم أو أي مطعم آخر."
+    );
+
+    setText(
+      "otherRestaurant",
+      "مطعم آخر"
+    );
+
+
+    /* ORDER FORM */
+
+    setText(
+      "orderTitle",
+      "اطلب طعامك"
+    );
+
+    setText(
+      "orderText",
+      "أدخل بياناتك وأرسل الطلب مباشرة إلى واتساب."
+    );
+
+    setText(
+      "nameLabel",
+      "👤 الاسم"
+    );
+
+    setText(
+      "phoneLabel",
+      "📱 رقم الواتساب"
+    );
+
+    setText(
+      "restaurantLabel",
+      "🍽️ المطعم"
+    );
+
+    setText(
+      "foodLabel",
+      "📝 طلب الطعام"
+    );
+
+    setText(
+      "quantityLabel",
+      "🔢 الكمية"
+    );
+
+    setText(
+      "hotelLabel",
+      "🏨 الفندق / موقع التوصيل"
+    );
+
+    setText(
+      "roomLabel",
+      "🚪 رقم الغرفة"
+    );
+
+    setText(
+      "locationLabel",
+      "📍 موقع Google Maps / العنوان"
+    );
+
+    setText(
+      "deliveryTimeLabel",
+      "🕐 وقت التوصيل المفضل"
+    );
+
+    setText(
+      "notesLabel",
+      "📝 ملاحظات إضافية"
+    );
+
+    setText(
+      "feeTitle",
+      "💰 رسوم الخدمة والتوصيل"
+    );
+
+    setHTML(
+      "feeText",
+      "رسوم الخدمة تبدأ من <b>30 ريال</b>. سعر الطعام منفصل وسيتم تأكيده قبل الشراء."
+    );
+
+    setText(
+      "summaryTitle",
+      "📋 ملخص الطلب"
+    );
+
+    setText(
+      "reviewButton",
+      "👀 مراجعة الطلب"
+    );
+
+    setText(
+      "sendButton",
+      "📱 تأكيد وإرسال الطلب عبر واتساب"
+    );
+
+
+    /* PLACEHOLDERS */
+
+    setPlaceholder(
+      "customerName",
+      "أدخل اسمك"
+    );
+
+    setPlaceholder(
+      "customerPhone",
+      "+966 5XXXXXXXX"
+    );
+
+    setPlaceholder(
+      "foodOrder",
+      "مثال: برجر دجاج، بطاطس، بيبسي"
+    );
+
+    setPlaceholder(
+      "quantity",
+      "كم عدد الطلبات؟"
+    );
+
+    setPlaceholder(
+      "hotel",
+      "اسم الفندق أو موقع التوصيل"
+    );
+
+    setPlaceholder(
+      "room",
+      "مثال: 805"
+    );
+
+    setPlaceholder(
+      "location",
+      "الصق رابط Google Maps أو اكتب العنوان"
+    );
+
+    setPlaceholder(
+      "deliveryTime",
+      "مثال: في أقرب وقت / 8:00 مساءً"
+    );
+
+    setPlaceholder(
+      "notes",
+      "هل لديك أي طلب خاص؟"
+    );
+
+
+    /* RESTAURANT SELECT */
+
+    setText(
+      "restaurantDefault",
+      "اختر المطعم"
+    );
+
+
+    /* AREAS */
+
+    setText(
+      "areaTitle",
+      "مناطق التوصيل في مكة"
+    );
+
+    setText(
+      "areaText",
+      "نركز على الفنادق ومواقع العملاء في وسط مكة."
+    );
+
+    setText(
+      "area1",
+      "🕋 برج الساعة"
+    );
+
+    setText(
+      "area2",
+      "🏨 أجياد"
+    );
+
+    setText(
+      "area3",
+      "🏨 جبل عمر"
+    );
+
+    setText(
+      "area4",
+      "🏨 إبراهيم الخليل"
+    );
+
+    setText(
+      "area5",
+      "🏨 وسط مكة"
+    );
+
+
+    /* FAQ */
+
+    setText(
+      "faqTitle",
+      "الأسئلة الشائعة"
+    );
+
+    setText(
+      "q1",
+      "هل لديكم مطعم خاص؟"
+    );
+
+    setText(
+      "a1",
+      "لا. نحن خدمة شراء وتوصيل الطعام. نشتري الطعام من المطعم الذي تختاره ونوصله إليك."
+    );
+
+    setText(
+      "q2",
+      "كم رسوم الخدمة؟"
+    );
+
+    setText(
+      "a2",
+      "رسوم الخدمة تبدأ من 30 ريال، وسعر الطعام منفصل."
+    );
+
+    setText(
+      "q3",
+      "هل يمكنني الطلب من مطعم آخر؟"
+    );
+
+    setText(
+      "a3",
+      "نعم. اكتب اسم المطعم وتفاصيل طلبك."
+    );
+
+    setText(
+      "q4",
+      "هل يمكنني إرسال موقع الفندق؟"
+    );
+
+    setText(
+      "a4",
+      "نعم. يمكنك إرسال رابط Google Maps أو تفاصيل الفندق والعنوان."
+    );
+
+
+    /* FOOTER */
+
+    setText(
+      "footerAbout",
+      "خدمة شراء وتوصيل الطعام في مكة. نحضر لك الطعام من مطعمك المفضل إلى موقعك."
+    );
+
+    setText(
+      "footerService",
+      "الخدمة"
+    );
+
+    setText(
+      "footerOrder",
+      "اطلب الطعام"
+    );
+
+    setText(
+      "footerFee",
+      "رسوم الخدمة"
+    );
+
+    setText(
+      "footerFaq",
+      "الأسئلة الشائعة"
+    );
+
+    setText(
+      "footerContact",
+      "تواصل معنا"
+    );
+
+  }else{
+
+    /* ENGLISH */
+
+    setText("navOrder","Order Now");
+
+    setText(
+      "badge",
+      "🕋 Food Delivery Service in Makkah"
+    );
+
+    setHTML(
+      "heroTitle",
+      "Your Favorite Food.<br><span>Delivered to You.</span>"
+    );
+
+    setText(
+      "heroText",
+      "Choose any restaurant you like. We buy your food and deliver it directly to your hotel or location in Makkah."
+    );
+
+    setText(
+      "heroOrder",
+      "🍔 Order Food"
+    );
+
+    setText(
+      "heroNote",
+      "Service fee starts from 30 SAR • Food cost is separate"
+    );
+
+    setText(
+      "cardTitle",
+      "Makkah Food Delivery"
+    );
+
+    setText(
+      "available",
+      "Available"
+    );
+
+    setText(
+      "cardHeading",
+      "From your restaurant to your hotel"
+    );
+
+    setText(
+      "cardText",
+      "Tell us what you want. We handle the pickup and delivery for you."
+    );
+
+    setText(
+      "feeSmall",
+      "Service fee"
+    );
+
+    setText(
+      "orderSmall",
+      "Easy ordering"
+    );
+
+
+    /* TRUST */
+
+    setText(
+      "trustStrong1",
+      "🍔 Any Restaurant"
+    );
+
+    setText(
+      "trust1",
+      "Your choice"
+    );
+
+    setText(
+      "trustStrong2",
+      "🏨 Hotel Delivery"
+    );
+
+    setText(
+      "trust2",
+      "Makkah hotels"
+    );
+
+    setText(
+      "trustStrong3",
+      "📍 Your Location"
+    );
+
+    setText(
+      "trust3",
+      "Easy delivery"
+    );
+
+    setText(
+      "trustStrong4",
+      "📱 WhatsApp"
+    );
+
+    setText(
+      "trust4",
+      "Simple ordering"
+    );
+
+
+    /* HOW */
+
+    setText(
+      "howTitle",
+      "How It Works"
+    );
+
+    setText(
+      "howText",
+      "Ordering your favorite food in Makkah is simple."
+    );
+
+    setText(
+      "s1Title",
+      "Choose a Restaurant"
+    );
+
+    setText(
+      "s1Text",
+      "Choose your favorite restaurant or tell us another one."
+    );
+
+    setText(
+      "s2Title",
+      "Send Your Order"
+    );
+
+    setText(
+      "s2Text",
+      "Tell us exactly what food you want."
+    );
+
+    setText(
+      "s3Title",
+      "We Buy It"
+    );
+
+    setText(
+      "s3Text",
+      "We purchase your order from the restaurant."
+    );
+
+    setText(
+      "s4Title",
+      "We Deliver"
+    );
+
+    setText(
+      "s4Text",
+      "We bring your order to your hotel or location."
+    );
+
+
+    /* CTA */
+
+    setText(
+      "ctaTitle",
+      "Hungry? Let's get your food."
+    );
+
+    setText(
+      "ctaText",
+      "Order from your favorite restaurant in Makkah today."
+    );
+
+    setText(
+      "ctaButton",
+      "Order Now →"
+    );
+
+
+    /* RESTAURANTS */
+
+    setText(
+      "restTitle",
+      "Popular Restaurants"
+    );
+
+    setText(
+      "restText",
+      "You can request food from these or any other restaurant."
+    );
+
+    setText(
+      "otherRestaurant",
+      "Other Restaurant"
+    );
+
+
+    /* ORDER */
+
+    setText(
+      "orderTitle",
+      "Place Your Order"
+    );
+
+    setText(
+      "orderText",
+      "Tell us what you want and we will buy it from the restaurant and deliver it to you."
+    );
+
+    setText(
+      "nameLabel",
+      "👤 Your Name"
+    );
+
+    setText(
+      "phoneLabel",
+      "📱 Your WhatsApp Number"
+    );
+
+    setText(
+      "restaurantLabel",
+      "🍽️ Restaurant"
+    );
+
+    setText(
+      "foodLabel",
+      "📝 Food Order"
+    );
+
+    setText(
+      "quantityLabel",
+      "🔢 Quantity"
+    );
+
+    setText(
+      "hotelLabel",
+      "🏨 Hotel / Delivery Location"
+    );
+
+    setText(
+      "roomLabel",
+      "🚪 Room Number"
+    );
+
+    setText(
+      "locationLabel",
+      "📍 Google Maps Location / Address"
+    );
+
+    setText(
+      "deliveryTimeLabel",
+      "🕐 Preferred Delivery Time"
+    );
+
+    setText(
+      "notesLabel",
+      "📝 Special Instructions"
+    );
+
+    setText(
+      "feeTitle",
+      "💰 Service & Delivery Fee"
+    );
+
+    setHTML(
+      "feeText",
+      "Service fee starts from <b>30 SAR</b>. Food price is separate and will be confirmed before purchase."
+    );
+
+    setText(
+      "summaryTitle",
+      "📋 Order Summary"
+    );
+
+    setText(
+      "reviewButton",
+      "👀 Review Order"
+    );
+
+    setText(
+      "sendButton",
+      "📱 Confirm & Send to WhatsApp"
+    );
+
+
+    /* PLACEHOLDERS */
+
+    setPlaceholder(
+      "customerName",
+      "Enter your name"
+    );
+
+    setPlaceholder(
+      "customerPhone",
+      "+966 5XXXXXXXX"
+    );
+
+    setPlaceholder(
+      "foodOrder",
+      "Example: Chicken Burger, Fries, Pepsi"
+    );
+
+    setPlaceholder(
+      "quantity",
+      "How many items?"
+    );
+
+    setPlaceholder(
+      "hotel",
+      "Hotel name or delivery location"
+    );
+
+    setPlaceholder(
+      "room",
+      "Example: 805"
+    );
+
+    setPlaceholder(
+      "location",
+      "Paste your Google Maps link or write your address"
+    );
+
+    setPlaceholder(
+      "deliveryTime",
+      "Example: As soon as possible / 8:00 PM"
+    );
+
+    setPlaceholder(
+      "notes",
+      "Any special request?"
+    );
+
+
+    setText(
+      "restaurantDefault",
+      "Select Restaurant"
+    );
+
+
+    /* AREAS */
+
+    setText(
+      "areaTitle",
+      "Makkah Delivery Areas"
+    );
+
+    setText(
+      "areaText",
+      "We focus on hotels and customer locations in central Makkah."
+    );
+
+    setText(
+      "area1",
+      "🕋 Clock Tower"
+    );
+
+    setText(
+      "area2",
+      "🏨 Ajyad"
+    );
+
+    setText(
+      "area3",
+      "🏨 Jabal Omar"
+    );
+
+    setText(
+      "area4",
+      "🏨 Ibrahim Al Khalil"
+    );
+
+    setText(
+      "area5",
+      "🏨 Central Makkah"
+    );
+
+
+    /* FAQ */
+
+    setText(
+      "faqTitle",
+      "Frequently Asked Questions"
+    );
+
+    setText(
+      "q1",
+      "Do you have your own restaurant?"
+    );
+
+    setText(
+      "a1",
+      "No. We are a food purchasing and delivery service. We buy food from the restaurant you choose and deliver it to you."
+    );
+
+    setText(
+      "q2",
+      "How much is the service fee?"
+    );
+
+    setText(
+      "a2",
+      "Our service fee starts from 30 SAR. The food price is separate."
+    );
+
+    setText(
+      "q3",
+      "Can I order from another restaurant?"
+    );
+
+    setText(
+      "a3",
+      "Yes. Simply write the restaurant name and your food order."
+    );
+
+    setText(
+      "q4",
+      "Can I send my hotel location?"
+    );
+
+    setText(
+      "a4",
+      "Yes. You can provide your Google Maps link or your hotel/address details."
+    );
+
+
+    /* FOOTER */
+
+    setText(
+      "footerAbout",
+      "Food purchasing and delivery service in Makkah. We bring food from your favorite restaurant to your location."
+    );
+
+    setText(
+      "footerService",
+      "Service"
+    );
+
+    setText(
+      "footerOrder",
+      "Order Food"
+    );
+
+    setText(
+      "footerFee",
+      "Service Fee"
+    );
+
+    setText(
+      "footerFaq",
+      "FAQ"
+    );
+
+    setText(
+      "footerContact",
+      "Contact"
+    );
+
+  }
+
+}
+
+
+/* =========================
+   HELPER FUNCTIONS
+========================= */
+
+function setText(id,text){
+
+  const element = document.getElementById(id);
+
+  if(element){
+    element.textContent = text;
+  }
+
+}
+
+
+function setHTML(id,html){
+
+  const element = document.getElementById(id);
+
+  if(element){
+    element.innerHTML = html;
+  }
+
+}
+
+
+function setPlaceholder(id,text){
+
+  const element = document.getElementById(id);
+
+  if(element){
+    element.placeholder = text;
+  }
+
+}
+
+
+/* =========================
+   GET FORM DATA
+========================= */
+
+function getOrderData(){
+
+  return {
+
+    name:
+      document.getElementById("customerName").value.trim(),
+
+    phone:
+      document.getElementById("customerPhone").value.trim(),
+
+    restaurant:
+      document.getElementById("restaurant").value.trim(),
+
+    food:
+      document.getElementById("foodOrder").value.trim(),
+
+    quantity:
+      document.getElementById("quantity").value.trim(),
+
+    hotel:
+      document.getElementById("hotel").value.trim(),
+
+    room:
+      document.getElementById("room").value.trim(),
+
+    location:
+      document.getElementById("location").value.trim(),
+
+    deliveryTime:
+      document.getElementById("deliveryTime").value.trim(),
+
+    notes:
+      document.getElementById("notes").value.trim()
+
+  };
+
+}
+
+
+/* =========================
+   VALIDATION
+========================= */
+
+function validateOrder(data){
+
+  if(
+    !data.name ||
+    !data.phone ||
+    !data.restaurant ||
+    !data.food ||
+    !data.hotel ||
+    !data.location
+  ){
+
+    if(arabic){
+
+      alert(
+        "يرجى تعبئة الاسم ورقم الواتساب والمطعم وطلب الطعام والفندق والموقع."
+      );
+
+    }else{
+
+      alert(
+        "Please fill in your Name, WhatsApp Number, Restaurant, Food Order, Hotel and Location."
+      );
+
+    }
+
+    return false;
+  }
+
+  return true;
+
+}
+
+
+/* =========================
+   ORDER SUMMARY
+========================= */
+
+function showOrderSummary(){
+
+  const data = getOrderData();
+
+  if(!validateOrder(data)){
+    return;
+  }
+
+
+  const content =
+    document.getElementById("summaryContent");
+
+  content.innerHTML = "";
+
+
+  const rows = [
+
+    [
+      arabic ? "👤 العميل" : "👤 Customer",
+      data.name
+    ],
+
+    [
+      arabic ? "📱 الواتساب" : "📱 WhatsApp",
+      data.phone
+    ],
+
+    [
+      arabic ? "🍽️ المطعم" : "🍽️ Restaurant",
+      data.restaurant
+    ],
+
+    [
+      arabic ? "📝 الطعام" : "📝 Food",
+      data.food
+    ],
+
+    [
+      arabic ? "🔢 الكمية" : "🔢 Quantity",
+      data.quantity || "1"
+    ],
+
+    [
+      arabic ? "🏨 الفندق" : "🏨 Hotel",
+      data.hotel
+    ],
+
+    [
+      arabic ? "🚪 الغرفة" : "🚪 Room",
+      data.room || (
+        arabic ? "غير محدد" : "Not provided"
+      )
+    ],
+
+    [
+      arabic ? "📍 الموقع" : "📍 Location",
+      data.location
+    ],
+
+    [
+      arabic ? "🕐 وقت التوصيل" : "🕐 Delivery",
+      data.deliveryTime || (
+        arabic
+          ? "في أقرب وقت"
+          : "As soon as possible"
+      )
+    ],
+
+    [
+      arabic ? "📌 الملاحظات" : "📌 Instructions",
+      data.notes || (
+        arabic ? "لا يوجد" : "None"
+      )
+    ],
+
+    [
+      arabic ? "💰 رسوم الخدمة" : "💰 Service Fee",
+      arabic
+        ? "تبدأ من 30 ريال"
+        : "Starting from 30 SAR"
+    ]
+
+  ];
+
+
+  rows.forEach(function(row){
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "summary-row";
+
+
+    const label =
+      document.createElement("div");
+
+    label.className =
+      "summary-label";
+
+    label.textContent =
+      row[0];
+
+
+    const value =
+      document.createElement("div");
+
+    value.textContent =
+      row[1];
+
+
+    div.appendChild(label);
+    div.appendChild(value);
+
+    content.appendChild(div);
+
+  });
+
+
+  const summary =
+    document.getElementById("orderSummary");
+
+  summary.style.display = "block";
+
+
+  summary.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+}
+
+
+/* =========================
+   SEND ORDER TO WHATSAPP
+========================= */
+
+function sendOrder(){
+
+  const data = getOrderData();
+
+  if(!validateOrder(data)){
+    return;
+  }
+
+
+  const message =
+
+`🍔 NEW FOOD DELIVERY ORDER
+━━━━━━━━━━━━━━━━━━━━
+
+👤 CUSTOMER
+Name: ${data.name}
+
+📱 CUSTOMER WHATSAPP
+${data.phone}
+
+🍽️ RESTAURANT
+${data.restaurant}
+
+📝 FOOD ORDER
+${data.food}
+
+🔢 QUANTITY
+${data.quantity || "1"}
+
+🏨 DELIVERY LOCATION
+Hotel: ${data.hotel}
+
+🚪 ROOM NUMBER
+${data.room || "Not provided"}
+
+📍 GOOGLE MAPS / ADDRESS
+${data.location}
+
+🕐 PREFERRED DELIVERY TIME
+${data.deliveryTime || "As soon as possible"}
+
+📌 SPECIAL INSTRUCTIONS
+${data.notes || "None"}
+
+━━━━━━━━━━━━━━━━━━━━
+💰 SERVICE FEE
+Starting from 30 SAR
+
+Food price: Separate
+
+━━━━━━━━━━━━━━━━━━━━
+Makkah Delivery Hub`;
+
+
+  const url =
+    "https://wa.me/966550865064?text=" +
+    encodeURIComponent(message);
+
+
+  window.open(
+    url,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+}
+
+</script>
+
+</body>
+</html>
