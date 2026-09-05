@@ -853,3 +853,19 @@ body.rtl .float-wa{
     padding:20px;
   }
 }
+
+.local-area-text{
+  max-width:850px;
+  margin:28px auto 0;
+  text-align:center;
+  line-height:1.8;
+}
+
+.local-area-text p{
+  margin-bottom:12px;
+  color:#71807a;
+}
+
+.local-area-text strong{
+  color:#087f5b;
+}
