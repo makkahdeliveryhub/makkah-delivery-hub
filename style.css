@@ -819,3 +819,37 @@ body.rtl .float-wa{
     left:15px;
   }
 }
+
+.local-seo-section{
+  padding:70px 0;
+  background:#f7faf8;
+}
+
+.local-seo-content{
+  max-width:850px;
+  margin:0 auto;
+  background:#fff;
+  padding:28px;
+  border-radius:18px;
+  border:1px solid #e2ebe7;
+  line-height:1.8;
+}
+
+.local-seo-content p{
+  margin-bottom:16px;
+  color:#52635c;
+}
+
+.local-seo-content p:last-child{
+  margin-bottom:0;
+}
+
+@media(max-width:550px){
+  .local-seo-section{
+    padding:50px 0;
+  }
+
+  .local-seo-content{
+    padding:20px;
+  }
+}
