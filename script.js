@@ -84,6 +84,17 @@ const translations = {
 
     q4: "Can I send my hotel location?",
     a4: "Yes. You can provide your Google Maps link or your hotel/address details.",
+    q5: "How can I order food through WhatsApp?",
+    a5: "Fill in the order form on our website and send your order directly to our WhatsApp.",
+
+    q6: "Can I send my Google Maps location?",
+    a6: "Yes. You can paste your Google Maps link in the order form.",
+
+    q7: "Do you have your own restaurant?",
+    a7: "No. Makkah Delivery Hub is a food purchasing and delivery service. We buy food from the restaurant you choose and deliver it to you.",
+
+    q8: "How long does food delivery take?",
+    a8: "Delivery time depends on the restaurant, food preparation time, traffic and your location.",
 
     footerAbout: "Food purchasing and delivery service in Makkah. We bring food from your favorite restaurant to your location.",
     footerService: "Service",
@@ -175,6 +186,17 @@ const translations = {
 
     q4: "هل يمكنني إرسال موقع الفندق؟",
     a4: "نعم. يمكنك إرسال رابط Google Maps أو تفاصيل الفندق والعنوان.",
+    q5: "كيف يمكنني طلب الطعام عبر واتساب؟",
+    a5: "املأ نموذج الطلب في موقعنا وأرسل طلبك مباشرة إلى واتساب.",
+
+    q6: "هل يمكنني إرسال موقعي عبر Google Maps؟",
+    a6: "نعم. يمكنك لصق رابط Google Maps الخاص بك في نموذج الطلب.",
+
+    q7: "هل لديكم مطعم خاص؟",
+    a7: "لا. Makkah Delivery Hub هي خدمة لشراء وتوصيل الطعام. نشتري الطعام من المطعم الذي تختاره ونوصله إليك.",
+
+    q8: "كم يستغرق توصيل الطعام؟",
+    a8: "يعتمد وقت التوصيل على المطعم ووقت تجهيز الطعام وحركة المرور وموقعك.",
 
     footerAbout: "خدمة شراء وتوصيل الطعام في مكة. نحضر لك الطعام من مطعمك المفضل إلى موقعك.",
     footerService: "الخدمة",
