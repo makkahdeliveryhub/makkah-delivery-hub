@@ -1,741 +1,1111 @@
-let arabic = false;
+"use strict";
+
+/* =========================================================
+   MAKKAH DELIVERY HUB
+   FINAL LANGUAGE + ORDER SCRIPT
+   English / Arabic
+   ========================================================= */
+
+const WHATSAPP_NUMBER = "966550865064";
+const LANGUAGE_KEY = "makkahDeliveryHubLanguage";
+
+
+/* =========================================================
+   TRANSLATIONS
+   ========================================================= */
 
 const translations = {
+
   en: {
-    navOrder: "Order Now",
-    badge: "🕋 Food Delivery Service in Makkah",
-    heroTitle: "Your Favorite Food.<br><span>Delivered to You.</span>",
-    heroText: "Choose any restaurant you like. We buy your food and deliver it directly to your hotel or location in Makkah.",
-    heroOrder: "🍔 Order Food",
-    heroWhatsApp: "📱 WhatsApp",
-    heroNote: "Service fee starts from 30 SAR • Food cost is separate",
 
-    cardTitle: "Makkah Food Delivery",
-    available: "Available",
-    cardHeading: "From your restaurant to your hotel",
-    cardText: "Tell us what you want. We handle the pickup and delivery for you.",
-    feeSmall: "Service fee",
-    orderSmall: "Easy ordering",
+    languageButton: "العربية",
 
-    trustStrong1: "🍔 Any Restaurant",
-    trust1: "Your choice",
-    trustStrong2: "🏨 Hotel Delivery",
-    trust2: "Makkah hotels",
-    trustStrong3: "📍 Your Location",
-    trust3: "Easy delivery",
-    trustStrong4: "📱 WhatsApp",
-    trust4: "Simple ordering",
+    heroEyebrow: "FOOD DELIVERY IN MAKKAH",
 
-    howTitle: "How It Works",
-    howText: "Ordering your favorite food in Makkah is simple.",
-    s1Title: "Choose a Restaurant",
-    s1Text: "Choose your favorite restaurant or tell us another one.",
-    s2Title: "Send Your Order",
-    s2Text: "Tell us exactly what food you want.",
-    s3Title: "We Buy It",
-    s3Text: "We purchase your order from the restaurant.",
-    s4Title: "We Deliver",
-    s4Text: "We bring your order to your hotel or location.",
+    heroTitle: "Food Delivery in Makkah",
 
-    ctaTitle: "Hungry? Let's get your food.",
-    ctaText: "Order from your favorite restaurant in Makkah today.",
-    ctaButton: "Order Now →",
+    heroText:
+      "Order food from your favorite restaurant in Makkah and we will purchase it and deliver it directly to your hotel or location.",
 
-    restTitle: "Popular Restaurants",
-    restText: "You can request food from these or any other restaurant.",
-    otherRestaurant: "Other Restaurant",
+    heroOrderBtn: "Order Now",
 
-    orderTitle: "Place Your Order",
-    orderText: "Tell us what you want and we will buy it from the restaurant and deliver it to you.",
+    heroWhatsAppBtn: "WhatsApp",
 
-    nameLabel: "👤 Your Name",
-    phoneLabel: "📱 Your WhatsApp Number",
-    restaurantLabel: "🍽️ Restaurant",
-    foodLabel: "📝 Food Order",
-    quantityLabel: "🔢 Quantity",
-    hotelLabel: "🏨 Hotel / Delivery Location",
-    roomLabel: "🚪 Room Number",
-    locationLabel: "📍 Google Maps Location / Address",
-    deliveryTimeLabel: "🕐 Preferred Delivery Time",
-    notesLabel: "📝 Special Instructions",
+    heroFee: "Service fee starts from 30 SAR",
 
-    feeTitle: "💰 Service & Delivery Fee",
-    feeText: "Service fee starts from <b>30 SAR</b>. Food price is separate and will be confirmed before purchase.",
+    localKicker: "LOCAL FOOD DELIVERY",
 
-    summaryTitle: "📋 Order Summary",
-    reviewButton: "👀 Review Order",
-    sendButton: "📱 Confirm & Send to WhatsApp",
+    localTitle: "Food Delivery to Hotels and Locations in Makkah",
 
-    areaTitle: "Makkah Delivery Areas",
-    areaText: "We focus on hotels and customer locations in central Makkah.",
+    localIntro:
+      "Makkah Delivery Hub helps visitors, pilgrims and hotel guests order food from popular restaurants in Makkah.",
+
+    localP1:
+      "We purchase your selected food from the restaurant and deliver it directly to your hotel, room or location in Makkah.",
+
+    localP2:
+      "Our service is useful for visitors staying around Makkah Clock Tower, Ajyad, Jabal Omar, Ibrahim Al Khalil and nearby areas.",
+
+    localP3:
+      "Simply send us your food order through WhatsApp. The food price is separate and our delivery service fee starts from 30 SAR.",
+
+    localP4:
+      "We focus on convenient food purchasing and hotel delivery for visitors and pilgrims in Makkah.",
+
+
+    howKicker: "HOW IT WORKS",
+
+    howTitle: "How Makkah Delivery Hub Works",
+
+    step1Title: "Send Your Order",
+
+    step1Text:
+      "Tell us the restaurant and food you want through WhatsApp or our order form.",
+
+    step2Title: "We Buy Your Food",
+
+    step2Text:
+      "We purchase your selected food from the restaurant.",
+
+    step3Title: "We Pick It Up",
+
+    step3Text:
+      "Our delivery service collects the prepared food from the restaurant.",
+
+    step4Title: "We Deliver",
+
+    step4Text:
+      "Your food is delivered directly to your hotel or location in Makkah.",
+
+
+    ctaTitle: "Need Food Delivered in Makkah?",
+
+    ctaText:
+      "Send your order on WhatsApp and let us handle the restaurant pickup and delivery.",
+
+    ctaButton: "Order on WhatsApp",
+
+
+    restaurantsKicker: "POPULAR RESTAURANTS",
+
+    restaurantsTitle: "Restaurants We Can Purchase From",
+
+    restaurantsText:
+      "Tell us what you want from your preferred restaurant. Restaurant availability may vary by location.",
+
+
+    restaurant1: "Al Baik",
+
+    restaurant1Text:
+      "Chicken, seafood, meals and popular Al Baik items.",
+
+    restaurant2: "McDonald's",
+
+    restaurant2Text:
+      "Burgers, meals, fries, drinks and more.",
+
+    restaurant3: "Al Tazaj",
+
+    restaurant3Text:
+      "Grilled chicken and Arabic-style meals.",
+
+    restaurant4: "Kudu",
+
+    restaurant4Text:
+      "Burgers, sandwiches, meals and drinks.",
+
+    restaurant5: "Al Romansiah",
+
+    restaurant5Text:
+      "Traditional Saudi rice and meat dishes.",
+
+    restaurant6: "Other Restaurants",
+
+    restaurant6Text:
+      "You can request food from another restaurant in Makkah.",
+
+
+    orderKicker: "PLACE YOUR ORDER",
+
+    orderTitle: "Food Delivery Order",
+
+    orderText:
+      "Fill in your details and we will open WhatsApp with your order information.",
+
+    nameLabel: "Your Name",
+
+    namePlaceholder: "Enter your name",
+
+    restaurantLabel: "Restaurant",
+
+    restaurantPlaceholder: "Select restaurant",
+
+    restaurantOther: "Other Restaurant",
+
+    foodLabel: "Food Order",
+
+    foodPlaceholder: "Example: 2 Chicken Meals + 2 Pepsi",
+
+    hotelLabel: "Hotel Name",
+
+    hotelPlaceholder: "Enter hotel name",
+
+    roomLabel: "Room Number",
+
+    roomPlaceholder: "Enter room number",
+
+    locationLabel: "Delivery Location",
+
+    locationPlaceholder: "Hotel / building / location",
+
+    phoneLabel: "Your WhatsApp Number",
+
+    phonePlaceholder: "Enter WhatsApp number",
+
+    notesLabel: "Additional Notes",
+
+    notesPlaceholder: "Any special instructions?",
+
+    submitButton: "Send Order on WhatsApp",
+
+
+    areasKicker: "DELIVERY AREAS",
+
+    areasTitle: "Food Delivery Areas in Makkah",
+
+    areasText:
+      "We provide food purchasing and delivery service in central Makkah and nearby locations.",
+
+    area1: "Makkah Clock Tower",
+
+    area2: "Ajyad",
+
+    area3: "Jabal Omar",
+
+    area4: "Ibrahim Al Khalil",
+
+    area5: "Central Makkah",
+
+    areaText:
+      "Delivery availability depends on the exact location and restaurant.",
+
+    areaStrong:
+      "Contact us on WhatsApp to confirm delivery.",
+
+
+    faqKicker: "FAQ",
 
     faqTitle: "Frequently Asked Questions",
 
-    q1: "Do you deliver food to hotels in Makkah?",
-    a1: "Yes. We provide food delivery to hotels and customer locations in central Makkah. Send us your hotel name, room number and Google Maps location through WhatsApp.",
+    q1: "What is Makkah Delivery Hub?",
 
-    q2: "Can I order from any restaurant in Makkah?",
-    a2: "Yes. You can request food from your favorite restaurant in Makkah. If the restaurant is not listed on our website, simply tell us the restaurant name and your food order.",
+    a1:
+      "Makkah Delivery Hub is a food purchasing and delivery service in Makkah. We purchase food from your selected restaurant and deliver it to your hotel or location.",
 
-    q3: "Do you deliver food near Makkah Clock Tower?",
-    a3: "Yes. We focus on central Makkah delivery areas including Makkah Clock Tower, Ajyad, Jabal Omar, Ibrahim Al Khalil and nearby hotels.",
+    q2: "How much is the delivery service fee?",
 
-    q4: "How much does food delivery cost in Makkah?",
-    a4: "Our service and delivery fee starts from 30 SAR. The restaurant food price is separate and will be confirmed before we purchase the order.",
+    a2:
+      "Our service fee starts from 30 SAR. The restaurant food cost is separate.",
 
-    q5: "How can I order food through WhatsApp?",
-    a5: "Fill in the order form on our website with your name, WhatsApp number, restaurant, food order, hotel and location. Then review your order and send it directly to our WhatsApp.",
+    q3: "Can you deliver food to my hotel room?",
 
-    q6: "Can I send my Google Maps location?",
-    a6: "Yes. You can paste your Google Maps link in the order form. This helps us find your hotel or delivery location in Makkah.",
+    a3:
+      "Yes. We can deliver to your hotel or another suitable location, subject to access and delivery availability.",
 
-    q7: "Do you have your own restaurant?",
-    a7: "No. Makkah Delivery Hub is a food purchasing and delivery service. We buy food from the restaurant you choose and deliver it to your hotel or location.",
+    q4: "Can I order from a restaurant not listed on the website?",
 
-    q8: "How long does food delivery take?",
-    a8: "Delivery time depends on the restaurant, food preparation time, traffic and your location. You can tell us your preferred delivery time when placing your order.",
+    a4:
+      "Yes. Send us the restaurant name and your food order through WhatsApp and we will check availability.",
 
-    footerAbout: "Food purchasing and delivery service in Makkah. We bring food from your favorite restaurant to your location.",
-    footerService: "Service",
-    footerOrder: "Order Food",
-    footerFee: "Service Fee",
-    footerFaq: "FAQ",
-    footerContact: "Contact"
+    q5: "How do I place an order?",
+
+    a5:
+      "You can use the order form on this website or contact us directly through WhatsApp.",
+
+    q6: "Do I pay the restaurant food price separately?",
+
+    a6:
+      "Yes. The food cost and our service fee are separate.",
+
+    q7: "Can you deliver to hotels near Makkah Clock Tower?",
+
+    a7:
+      "Yes. We serve many locations around central Makkah, including the Clock Tower and nearby hotel areas.",
+
+    q8: "How can I contact Makkah Delivery Hub?",
+
+    a8:
+      "Contact us directly through WhatsApp using the order button on this website.",
+
+
+    finalTitle: "Order Food Easily in Makkah",
+
+    finalText:
+      "Send us your restaurant and food order. We will purchase it and deliver it to your hotel or location.",
+
+    finalButton: "Contact Us on WhatsApp",
+
+
+    footerText:
+      "Food purchasing and delivery service in Makkah.",
+
+    footerCopyright:
+      "© 2026 Makkah Delivery Hub. All rights reserved.",
+
+
+    alertName: "Please enter your name.",
+
+    alertRestaurant: "Please select a restaurant.",
+
+    alertFood: "Please enter your food order.",
+
+    alertHotel: "Please enter your hotel name.",
+
+    alertRoom: "Please enter your room number.",
+
+    alertLocation: "Please enter your delivery location.",
+
+    alertPhone: "Please enter your WhatsApp number.",
+
+    successTitle: "Order Ready",
+
+    successText:
+      "Your order information is ready. WhatsApp will open now."
+
   },
 
+
   ar: {
-    navOrder: "اطلب الآن",
-    badge: "🕋 خدمة توصيل الطعام في مكة",
-    heroTitle: "طعامك المفضل.<br><span>نوصله إليك.</span>",
-    heroText: "اختر أي مطعم تريده. نشتري لك الطعام ونوصله مباشرة إلى فندقك أو موقعك في مكة.",
-    heroOrder: "🍔 اطلب الطعام",
-    heroWhatsApp: "📱 واتساب",
-    heroNote: "رسوم الخدمة تبدأ من 30 ريال • سعر الطعام منفصل",
 
-    cardTitle: "توصيل الطعام في مكة",
-    available: "متاح",
-    cardHeading: "من مطعمك إلى فندقك",
-    cardText: "أخبرنا بما تريد وسنتولى شراء الطعام وتوصيله إليك.",
-    feeSmall: "رسوم الخدمة",
-    orderSmall: "طلب سهل",
+    languageButton: "English",
 
-    trustStrong1: "🍔 أي مطعم",
-    trust1: "اختيارك",
-    trustStrong2: "🏨 توصيل للفندق",
-    trust2: "فنادق مكة",
-    trustStrong3: "📍 موقعك",
-    trust3: "توصيل سهل",
-    trustStrong4: "📱 واتساب",
-    trust4: "طلب سريع",
+    heroEyebrow: "توصيل الطعام في مكة",
 
-    howTitle: "كيف تعمل الخدمة؟",
-    howText: "طلب طعامك المفضل في مكة أصبح سهلاً.",
-    s1Title: "اختر المطعم",
-    s1Text: "اختر مطعمك المفضل أو أخبرنا بمطعم آخر.",
-    s2Title: "أرسل طلبك",
-    s2Text: "أخبرنا بالتفصيل بالطعام الذي تريده.",
-    s3Title: "نشتري الطعام",
-    s3Text: "نشتري طلبك من المطعم.",
-    s4Title: "نوصل الطلب",
-    s4Text: "نوصل الطلب إلى فندقك أو موقعك.",
+    heroTitle: "توصيل الطعام في مكة",
 
-    ctaTitle: "جائع؟ دعنا نحضر لك طعامك.",
-    ctaText: "اطلب من مطعمك المفضل في مكة اليوم.",
-    ctaButton: "اطلب الآن ←",
+    heroText:
+      "اطلب الطعام من مطعمك المفضل في مكة وسنقوم بشرائه وتوصيله مباشرة إلى الفندق أو الموقع الذي تحدده.",
 
-    restTitle: "المطاعم المشهورة",
-    restText: "يمكنك الطلب من هذه المطاعم أو أي مطعم آخر.",
-    otherRestaurant: "مطعم آخر",
+    heroOrderBtn: "اطلب الآن",
 
-    orderTitle: "اطلب طعامك",
-    orderText: "أدخل بياناتك وأرسل الطلب مباشرة إلى واتساب.",
+    heroWhatsAppBtn: "واتساب",
 
-    nameLabel: "👤 الاسم",
-    phoneLabel: "📱 رقم الواتساب",
-    restaurantLabel: "🍽️ المطعم",
-    foodLabel: "📝 طلب الطعام",
-    quantityLabel: "🔢 الكمية",
-    hotelLabel: "🏨 الفندق / موقع التوصيل",
-    roomLabel: "🚪 رقم الغرفة",
-    locationLabel: "📍 موقع Google Maps / العنوان",
-    deliveryTimeLabel: "🕐 وقت التوصيل المفضل",
-    notesLabel: "📝 ملاحظات إضافية",
+    heroFee: "رسوم الخدمة تبدأ من 30 ريال",
 
-    feeTitle: "💰 رسوم الخدمة والتوصيل",
-    feeText: "رسوم الخدمة تبدأ من <b>30 ريال</b>. سعر الطعام منفصل وسيتم تأكيده قبل الشراء.",
+    localKicker: "توصيل الطعام المحلي",
 
-    summaryTitle: "📋 ملخص الطلب",
-    reviewButton: "👀 مراجعة الطلب",
-    sendButton: "📱 إرسال الطلب عبر واتساب",
+    localTitle: "توصيل الطعام إلى الفنادق والمواقع في مكة",
 
-    areaTitle: "مناطق التوصيل في مكة",
-    areaText: "نركز على الفنادق ومواقع العملاء في وسط مكة.",
+    localIntro:
+      "تساعد خدمة Makkah Delivery Hub الزوار والمعتمرين ونزلاء الفنادق على طلب الطعام من المطاعم في مكة.",
+
+    localP1:
+      "نقوم بشراء الطعام الذي تختاره من المطعم وتوصيله مباشرة إلى الفندق أو الغرفة أو الموقع الذي تحدده في مكة.",
+
+    localP2:
+      "خدمتنا مناسبة للزوار المقيمين بالقرب من برج الساعة وأجياد وجبل عمر وإبراهيم الخليل والمناطق القريبة.",
+
+    localP3:
+      "أرسل طلب الطعام عبر واتساب بسهولة. سعر الطعام منفصل ورسوم خدمة التوصيل تبدأ من 30 ريال.",
+
+    localP4:
+      "نركز على تسهيل شراء الطعام وتوصيله للزوار والمعتمرين في مكة.",
+
+
+    howKicker: "طريقة الطلب",
+
+    howTitle: "كيف تعمل خدمة Makkah Delivery Hub",
+
+    step1Title: "أرسل طلبك",
+
+    step1Text:
+      "أرسل اسم المطعم والطعام الذي تريده عبر واتساب أو نموذج الطلب.",
+
+    step2Title: "نشتري الطعام",
+
+    step2Text:
+      "نقوم بشراء الطعام الذي اخترته من المطعم.",
+
+    step3Title: "نستلم الطلب",
+
+    step3Text:
+      "نستلم الطعام الجاهز من المطعم.",
+
+    step4Title: "نوصّل الطلب",
+
+    step4Text:
+      "نقوم بتوصيل الطعام مباشرة إلى الفندق أو الموقع في مكة.",
+
+
+    ctaTitle: "تحتاج إلى توصيل طعام في مكة؟",
+
+    ctaText:
+      "أرسل طلبك عبر واتساب وسنتولى شراء الطعام واستلامه وتوصيله.",
+
+    ctaButton: "اطلب عبر واتساب",
+
+
+    restaurantsKicker: "المطاعم المشهورة",
+
+    restaurantsTitle: "المطاعم التي يمكننا الشراء منها",
+
+    restaurantsText:
+      "أخبرنا بما تريده من المطعم المفضل لديك. قد تختلف إمكانية الطلب حسب الموقع.",
+
+
+    restaurant1: "البيك",
+
+    restaurant1Text:
+      "دجاج ومأكولات بحرية ووجبات وأصناف البيك المشهورة.",
+
+    restaurant2: "ماكدونالدز",
+
+    restaurant2Text:
+      "برجر ووجبات وبطاطس ومشروبات وغيرها.",
+
+    restaurant3: "الطازج",
+
+    restaurant3Text:
+      "دجاج مشوي ووجبات عربية.",
+
+    restaurant4: "كودو",
+
+    restaurant4Text:
+      "برجر وساندويتشات ووجبات ومشروبات.",
+
+    restaurant5: "الرومانسية",
+
+    restaurant5Text:
+      "أطباق الأرز واللحوم السعودية التقليدية.",
+
+    restaurant6: "مطاعم أخرى",
+
+    restaurant6Text:
+      "يمكنك طلب الطعام من مطعم آخر في مكة.",
+
+
+    orderKicker: "اطلب الآن",
+
+    orderTitle: "طلب توصيل الطعام",
+
+    orderText:
+      "أدخل بياناتك وسنفتح واتساب مع معلومات طلبك.",
+
+    nameLabel: "اسمك",
+
+    namePlaceholder: "أدخل اسمك",
+
+    restaurantLabel: "المطعم",
+
+    restaurantPlaceholder: "اختر المطعم",
+
+    restaurantOther: "مطعم آخر",
+
+    foodLabel: "طلب الطعام",
+
+    foodPlaceholder: "مثال: وجبتان دجاج + 2 بيبسي",
+
+    hotelLabel: "اسم الفندق",
+
+    hotelPlaceholder: "أدخل اسم الفندق",
+
+    roomLabel: "رقم الغرفة",
+
+    roomPlaceholder: "أدخل رقم الغرفة",
+
+    locationLabel: "موقع التوصيل",
+
+    locationPlaceholder: "الفندق / المبنى / الموقع",
+
+    phoneLabel: "رقم واتساب",
+
+    phonePlaceholder: "أدخل رقم واتساب",
+
+    notesLabel: "ملاحظات إضافية",
+
+    notesPlaceholder: "أي تعليمات خاصة؟",
+
+    submitButton: "إرسال الطلب عبر واتساب",
+
+
+    areasKicker: "مناطق التوصيل",
+
+    areasTitle: "مناطق توصيل الطعام في مكة",
+
+    areasText:
+      "نقدم خدمة شراء وتوصيل الطعام في وسط مكة والمناطق القريبة.",
+
+    area1: "برج الساعة",
+
+    area2: "أجياد",
+
+    area3: "جبل عمر",
+
+    area4: "إبراهيم الخليل",
+
+    area5: "وسط مكة",
+
+    areaText:
+      "تختلف إمكانية التوصيل حسب الموقع والمطعم.",
+
+    areaStrong:
+      "تواصل معنا عبر واتساب لتأكيد إمكانية التوصيل.",
+
+
+    faqKicker: "الأسئلة الشائعة",
 
     faqTitle: "الأسئلة الشائعة",
 
-    q1: "هل توصلون الطعام إلى الفنادق في مكة؟",
-    a1: "نعم. نوفر خدمة توصيل الطعام إلى الفنادق ومواقع العملاء في وسط مكة. أرسل اسم الفندق ورقم الغرفة وموقع Google Maps عبر واتساب.",
+    q1: "ما هي خدمة Makkah Delivery Hub؟",
 
-    q2: "هل يمكنني الطلب من أي مطعم في مكة؟",
-    a2: "نعم. يمكنك طلب الطعام من مطعمك المفضل في مكة. إذا لم يكن المطعم موجوداً في موقعنا، أخبرنا باسم المطعم وطلب الطعام.",
+    a1:
+      "Makkah Delivery Hub هي خدمة شراء وتوصيل الطعام في مكة. نقوم بشراء الطعام من المطعم الذي تختاره وتوصيله إلى الفندق أو الموقع الذي تحدده.",
 
-    q3: "هل توصلون الطعام بالقرب من برج الساعة في مكة؟",
-    a3: "نعم. نركز على مناطق التوصيل في وسط مكة، بما في ذلك برج الساعة وأجياد وجبل عمر وإبراهيم الخليل والفنادق القريبة.",
+    q2: "كم تبلغ رسوم خدمة التوصيل؟",
 
-    q4: "كم تكلفة توصيل الطعام في مكة؟",
-    a4: "تبدأ رسوم الخدمة والتوصيل من 30 ريال. سعر الطعام من المطعم منفصل وسيتم تأكيده قبل شراء الطلب.",
+    a2:
+      "تبدأ رسوم الخدمة من 30 ريال. سعر الطعام من المطعم منفصل.",
 
-    q5: "كيف يمكنني طلب الطعام عبر واتساب؟",
-    a5: "املأ نموذج الطلب في موقعنا باسمك ورقم واتساب والمطعم وطلب الطعام والفندق والموقع. ثم راجع طلبك وأرسله مباشرة إلى واتساب.",
+    q3: "هل يمكنكم توصيل الطعام إلى غرفتي في الفندق؟",
 
-    q6: "هل يمكنني إرسال موقع Google Maps؟",
-    a6: "نعم. يمكنك لصق رابط Google Maps في نموذج الطلب. يساعدنا ذلك في العثور على الفندق أو موقع التوصيل في مكة.",
+    a3:
+      "نعم. يمكننا توصيل الطعام إلى الفندق أو الموقع المناسب، حسب إمكانية الدخول والتوصيل.",
 
-    q7: "هل لديكم مطعم خاص بكم؟",
-    a7: "لا. Makkah Delivery Hub هي خدمة شراء وتوصيل الطعام. نشتري الطعام من المطعم الذي تختاره ونوصله إلى فندقك أو موقعك.",
+    q4: "هل يمكنني الطلب من مطعم غير موجود في الموقع؟",
 
-    q8: "كم يستغرق توصيل الطعام؟",
-    a8: "يعتمد وقت التوصيل على المطعم ووقت تجهيز الطعام وحركة المرور وموقعك. يمكنك إخبارنا بوقت التوصيل المفضل عند تقديم الطلب.",
+    a4:
+      "نعم. أرسل اسم المطعم وطلب الطعام عبر واتساب وسنتحقق من إمكانية الطلب.",
 
-    footerAbout: "خدمة شراء وتوصيل الطعام في مكة. نحضر لك الطعام من مطعمك المفضل إلى موقعك.",
-    footerService: "الخدمة",
-    footerOrder: "اطلب الطعام",
-    footerFee: "رسوم الخدمة",
-    footerFaq: "الأسئلة الشائعة",
-    footerContact: "تواصل معنا"
+    q5: "كيف يمكنني الطلب؟",
+
+    a5:
+      "يمكنك استخدام نموذج الطلب في الموقع أو التواصل معنا مباشرة عبر واتساب.",
+
+    q6: "هل سعر الطعام منفصل عن رسوم الخدمة؟",
+
+    a6:
+      "نعم. سعر الطعام ورسوم الخدمة منفصلان.",
+
+    q7: "هل توصلون إلى الفنادق بالقرب من برج الساعة؟",
+
+    a7:
+      "نعم. نخدم العديد من المواقع في وسط مكة، بما في ذلك برج الساعة والمناطق الفندقية القريبة.",
+
+    q8: "كيف يمكنني التواصل مع Makkah Delivery Hub؟",
+
+    a8:
+      "يمكنك التواصل معنا مباشرة عبر واتساب باستخدام أزرار الطلب الموجودة في الموقع.",
+
+
+    finalTitle: "اطلب الطعام بسهولة في مكة",
+
+    finalText:
+      "أرسل اسم المطعم وطلب الطعام وسنقوم بشرائه وتوصيله إلى الفندق أو الموقع الذي تحدده.",
+
+    finalButton: "تواصل معنا عبر واتساب",
+
+
+    footerText:
+      "خدمة شراء وتوصيل الطعام في مكة.",
+
+    footerCopyright:
+      "© 2026 Makkah Delivery Hub. جميع الحقوق محفوظة.",
+
+
+    alertName: "يرجى إدخال اسمك.",
+
+    alertRestaurant: "يرجى اختيار المطعم.",
+
+    alertFood: "يرجى إدخال طلب الطعام.",
+
+    alertHotel: "يرجى إدخال اسم الفندق.",
+
+    alertRoom: "يرجى إدخال رقم الغرفة.",
+
+    alertLocation: "يرجى إدخال موقع التوصيل.",
+
+    alertPhone: "يرجى إدخال رقم واتساب.",
+
+    successTitle: "الطلب جاهز",
+
+    successText:
+      "تم تجهيز معلومات طلبك. سيتم فتح واتساب الآن."
+
   }
+
 };
 
 
-const translationIds = Object.keys(translations.en);
+/* =========================================================
+   HELPER
+   ========================================================= */
 
+function setText(id, text) {
 
-function setText(id, value) {
   const element = document.getElementById(id);
 
   if (element) {
-    element.innerHTML = value;
+    element.textContent = text;
   }
+
 }
 
 
-function applyLanguage() {
+function setPlaceholder(id, text) {
 
-  const lang = arabic
-    ? translations.ar
-    : translations.en;
+  const element = document.getElementById(id);
 
-  document.body.classList.toggle("rtl", arabic);
+  if (element) {
+    element.placeholder = text;
+  }
 
-  document.documentElement.lang =
-    arabic ? "ar" : "en";
-
-  document.documentElement.dir =
-    arabic ? "rtl" : "ltr";
+}
 
 
-  const langButton =
-    document.getElementById("langBtn");
+/* =========================================================
+   APPLY LANGUAGE
+   ========================================================= */
 
-  if (langButton) {
-    langButton.textContent =
-      arabic ? "English" : "العربية";
+function applyLanguage(lang) {
+
+  if (!translations[lang]) {
+    lang = "en";
+  }
+
+  const t = translations[lang];
+
+  /* HTML direction */
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+  document.body.classList.toggle("rtl", lang === "ar");
+
+
+  /* Language button */
+
+  setText("languageToggle", t.languageButton);
+
+
+  /* Hero */
+
+  setText("heroEyebrow", t.heroEyebrow);
+  setText("heroTitle", t.heroTitle);
+  setText("heroText", t.heroText);
+  setText("heroOrderBtn", t.heroOrderBtn);
+  setText("heroWhatsAppBtn", t.heroWhatsAppBtn);
+  setText("heroFee", t.heroFee);
+
+
+  /* Local SEO */
+
+  setText("localSeoKicker", t.localKicker);
+  setText("localSeoTitle", t.localTitle);
+  setText("localSeoIntro", t.localIntro);
+  setText("localSeoP1", t.localP1);
+  setText("localSeoP2", t.localP2);
+  setText("localSeoP3", t.localP3);
+  setText("localSeoP4", t.localP4);
+
+
+  /* How it works */
+
+  setText("howKicker", t.howKicker);
+  setText("howTitle", t.howTitle);
+
+  setText("step1Title", t.step1Title);
+  setText("step1Text", t.step1Text);
+
+  setText("step2Title", t.step2Title);
+  setText("step2Text", t.step2Text);
+
+  setText("step3Title", t.step3Title);
+  setText("step3Text", t.step3Text);
+
+  setText("step4Title", t.step4Title);
+  setText("step4Text", t.step4Text);
+
+
+  /* CTA */
+
+  setText("ctaTitle", t.ctaTitle);
+  setText("ctaText", t.ctaText);
+  setText("ctaButton", t.ctaButton);
+
+
+  /* Restaurants */
+
+  setText("restaurantsKicker", t.restaurantsKicker);
+  setText("restaurantsTitle", t.restaurantsTitle);
+  setText("restaurantsText", t.restaurantsText);
+
+  setText("restaurant1", t.restaurant1);
+  setText("restaurant1Text", t.restaurant1Text);
+
+  setText("restaurant2", t.restaurant2);
+  setText("restaurant2Text", t.restaurant2Text);
+
+  setText("restaurant3", t.restaurant3);
+  setText("restaurant3Text", t.restaurant3Text);
+
+  setText("restaurant4", t.restaurant4);
+  setText("restaurant4Text", t.restaurant4Text);
+
+  setText("restaurant5", t.restaurant5);
+  setText("restaurant5Text", t.restaurant5Text);
+
+  setText("restaurant6", t.restaurant6);
+  setText("restaurant6Text", t.restaurant6Text);
+
+
+  /* Order form */
+
+  setText("orderKicker", t.orderKicker);
+  setText("orderTitle", t.orderTitle);
+  setText("orderText", t.orderText);
+
+  setText("nameLabel", t.nameLabel);
+  setText("restaurantLabel", t.restaurantLabel);
+  setText("foodLabel", t.foodLabel);
+  setText("hotelLabel", t.hotelLabel);
+  setText("roomLabel", t.roomLabel);
+  setText("locationLabel", t.locationLabel);
+  setText("phoneLabel", t.phoneLabel);
+  setText("notesLabel", t.notesLabel);
+
+  setPlaceholder("customerName", t.namePlaceholder);
+  setPlaceholder("foodOrder", t.foodPlaceholder);
+  setPlaceholder("hotelName", t.hotelPlaceholder);
+  setPlaceholder("roomNumber", t.roomPlaceholder);
+  setPlaceholder("location", t.locationPlaceholder);
+  setPlaceholder("phone", t.phonePlaceholder);
+  setPlaceholder("notes", t.notesPlaceholder);
+
+  setText("submitOrderBtn", t.submitButton);
+
+
+  /* Restaurant select */
+
+  const restaurantSelect = document.getElementById("restaurant");
+
+  if (restaurantSelect) {
+
+    const options = restaurantSelect.querySelectorAll("option");
+
+    options.forEach(function(option) {
+
+      const value = option.value;
+
+      if (value === "") {
+        option.textContent = t.restaurantPlaceholder;
+      }
+
+      else if (
+        value.toLowerCase().includes("al baik") ||
+        value.toLowerCase() === "baik"
+      ) {
+        option.textContent =
+          lang === "ar" ? "البيك" : "Al Baik";
+      }
+
+      else if (
+        value.toLowerCase().includes("mcdonald")
+      ) {
+        option.textContent =
+          lang === "ar" ? "ماكدونالدز" : "McDonald's";
+      }
+
+      else if (
+        value.toLowerCase().includes("tazaj")
+      ) {
+        option.textContent =
+          lang === "ar" ? "الطازج" : "Al Tazaj";
+      }
+
+      else if (
+        value.toLowerCase().includes("kudu")
+      ) {
+        option.textContent =
+          lang === "ar" ? "كودو" : "Kudu";
+      }
+
+      else if (
+        value.toLowerCase().includes("romansiah") ||
+        value.toLowerCase().includes("romansia")
+      ) {
+        option.textContent =
+          lang === "ar" ? "الرومانسية" : "Al Romansiah";
+      }
+
+      else {
+        option.textContent = t.restaurantOther;
+      }
+
+    });
+
   }
 
 
-  translationIds.forEach(id => {
-    setText(id, lang[id]);
+  /* Areas */
+
+  setText("areasKicker", t.areasKicker);
+  setText("areasTitle", t.areasTitle);
+  setText("areasText", t.areasText);
+
+  setText("area1", t.area1);
+  setText("area2", t.area2);
+  setText("area3", t.area3);
+  setText("area4", t.area4);
+  setText("area5", t.area5);
+
+  setText("areaText", t.areaText);
+  setText("areaStrong", t.areaStrong);
+
+
+  /* FAQ */
+
+  setText("faqKicker", t.faqKicker);
+  setText("faqTitle", t.faqTitle);
+
+  for (let i = 1; i <= 8; i++) {
+
+    setText("q" + i, t["q" + i]);
+    setText("a" + i, t["a" + i]);
+
+  }
+
+
+  /* Final CTA */
+
+  setText("finalTitle", t.finalTitle);
+  setText("finalText", t.finalText);
+  setText("finalButton", t.finalButton);
+
+
+  /* Footer */
+
+  setText("footerText", t.footerText);
+  setText("footerCopyright", t.footerCopyright);
+
+
+  /* Static WhatsApp buttons */
+
+  document.querySelectorAll("a").forEach(function(link) {
+
+    const href = link.getAttribute("href") || "";
+
+    if (
+      href.includes("wa.me") ||
+      href.includes("whatsapp")
+    ) {
+
+      link.setAttribute(
+        "href",
+        "https://wa.me/" + WHATSAPP_NUMBER
+      );
+
+      const text = link.textContent.trim();
+
+      if (
+        text === "WhatsApp" ||
+        text === "Order on WhatsApp" ||
+        text === "Contact Us on WhatsApp"
+      ) {
+
+        link.textContent =
+          lang === "ar"
+            ? "واتساب"
+            : text;
+
+      }
+
+    }
+
   });
 
 
-  const placeholders = arabic
-    ? {
-        customerName: "أدخل اسمك",
-        customerPhone: "+966 5XXXXXXXX",
-        foodOrder: "مثال: برجر دجاج، بطاطس، بيبسي",
-        quantity: "كم عدد الأصناف؟",
-        hotel: "اسم الفندق أو موقع التوصيل",
-        room: "مثال: 805",
-        location: "ضع رابط Google Maps أو اكتب العنوان",
-        deliveryTime: "مثال: في أقرب وقت / 8:00 مساءً",
-        notes: "هل لديك أي طلب خاص؟"
-      }
-    : {
-        customerName: "Enter your name",
-        customerPhone: "+966 5XXXXXXXX",
-        foodOrder: "Example: Chicken Burger, Fries, Pepsi",
-        quantity: "How many items?",
-        hotel: "Hotel name or delivery location",
-        room: "Example: 805",
-        location: "Paste your Google Maps link or write your address",
-        deliveryTime: "Example: As soon as possible / 8:00 PM",
-        notes: "Any special request?"
-      };
+  /* Save language */
 
+  localStorage.setItem(LANGUAGE_KEY, lang);
 
-  Object.entries(placeholders).forEach(
-    ([id, text]) => {
-
-      const element =
-        document.getElementById(id);
-
-      if (element) {
-        element.placeholder = text;
-      }
-
-    }
-  );
-
-
-  const restaurantOptions = arabic
-    ? {
-        restaurantPlaceholder: "اختر المطعم",
-        optBaik: "البيك",
-        optMc: "ماكدونالدز",
-        optTazaj: "الطازج",
-        optKudu: "كودو",
-        optRom: "الرومانسية",
-        optOther: "مطعم آخر"
-      }
-    : {
-        restaurantPlaceholder: "Select Restaurant",
-        optBaik: "Al Baik - البيك",
-        optMc: "McDonald's - ماكدونالز",
-        optTazaj: "Al Tazaj - الطازج",
-        optKudu: "Kudu - كودو",
-        optRom: "Al Romansiah - الرومانسية",
-        optOther: "Other Restaurant"
-      };
-
-
-  Object.entries(restaurantOptions).forEach(
-    ([id, text]) => {
-
-      const element =
-        document.getElementById(id);
-
-      if (element) {
-        element.textContent = text;
-      }
-
-    }
-  );
 }
 
 
-function toggleLanguage() {
+/* =========================================================
+   LANGUAGE TOGGLE
+   ========================================================= */
 
-  arabic = !arabic;
+function setupLanguageToggle() {
 
-  applyLanguage();
-}
+  const button = document.getElementById("languageToggle");
 
-
-function escapeHTML(value) {
-
-  return String(value).replace(
-    /[&<>"']/g,
-    char => {
-
-      const map = {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-      };
-
-      return map[char];
-
-    }
-  );
-}
-
-
-function getOrderData() {
-
-  return {
-
-    name:
-      document.getElementById("customerName")
-        .value.trim(),
-
-    phone:
-      document.getElementById("customerPhone")
-        .value.trim(),
-
-    restaurant:
-      document.getElementById("restaurant")
-        .value.trim(),
-
-    food:
-      document.getElementById("foodOrder")
-        .value.trim(),
-
-    quantity:
-      document.getElementById("quantity")
-        .value.trim(),
-
-    hotel:
-      document.getElementById("hotel")
-        .value.trim(),
-
-    room:
-      document.getElementById("room")
-        .value.trim(),
-
-    location:
-      document.getElementById("location")
-        .value.trim(),
-
-    deliveryTime:
-      document.getElementById("deliveryTime")
-        .value.trim(),
-
-    notes:
-      document.getElementById("notes")
-        .value.trim()
-  };
-}
-
-
-function validateOrder(data) {
-
-  if (
-    !data.name ||
-    !data.phone ||
-    !data.restaurant ||
-    !data.food ||
-    !data.hotel ||
-    !data.location
-  ) {
-
-    alert(
-      arabic
-        ? "يرجى تعبئة الاسم ورقم الواتساب والمطعم وطلب الطعام والفندق والموقع."
-        : "Please fill in your Name, WhatsApp Number, Restaurant, Food Order, Hotel and Location."
-    );
-
-    return false;
+  if (!button) {
+    return;
   }
 
+  button.addEventListener("click", function() {
 
-  const quantity =
-    Number(data.quantity);
+    const current =
+      localStorage.getItem(LANGUAGE_KEY) || "en";
 
+    const next =
+      current === "en" ? "ar" : "en";
 
-  if (
-    !Number.isInteger(quantity) ||
-    quantity < 1
-  ) {
+    applyLanguage(next);
 
-    alert(
-      arabic
-        ? "يرجى إدخال كمية صحيحة."
-        : "Please enter a valid quantity."
-    );
+  });
 
-    document
-      .getElementById("quantity")
-      .focus();
-
-    return false;
-  }
-
-
-  const digits =
-    data.phone.replace(/[^\d]/g, "");
-
-
-  if (
-    digits.length < 9 ||
-    digits.length > 15
-  ) {
-
-    alert(
-      arabic
-        ? "يرجى إدخال رقم واتساب صحيح."
-        : "Please enter a valid WhatsApp number."
-    );
-
-    document
-      .getElementById("customerPhone")
-      .focus();
-
-    return false;
-  }
-
-
-  return true;
 }
 
 
-function showOrderSummary() {
+/* =========================================================
+   WHATSAPP ORDER
+   ========================================================= */
 
-  const data =
-    getOrderData();
+function setupOrderForm() {
 
+  const form = document.getElementById("orderForm");
 
-  if (!validateOrder(data)) {
+  if (!form) {
     return;
   }
 
 
-  const labels = arabic
-    ? {
-        customer: "العميل",
-        phone: "الواتساب",
-        restaurant: "المطعم",
-        food: "الطلب",
-        quantity: "الكمية",
-        hotel: "الفندق",
-        room: "الغرفة",
-        location: "الموقع",
-        delivery: "وقت التوصيل",
-        instructions: "الملاحظات",
-        fee: "رسوم الخدمة"
-      }
-    : {
-        customer: "Customer",
-        phone: "WhatsApp",
-        restaurant: "Restaurant",
-        food: "Food",
-        quantity: "Quantity",
-        hotel: "Hotel",
-        room: "Room",
-        location: "Location",
-        delivery: "Delivery",
-        instructions: "Instructions",
-        fee: "Service Fee"
-      };
+  form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
 
 
-  const summary = `
+    const lang =
+      localStorage.getItem(LANGUAGE_KEY) || "en";
 
-    <p>
-      <strong>👤 ${labels.customer}:</strong>
-      ${escapeHTML(data.name)}
-    </p>
-
-    <p>
-      <strong>📱 ${labels.phone}:</strong>
-      ${escapeHTML(data.phone)}
-    </p>
-
-    <p>
-      <strong>🍽️ ${labels.restaurant}:</strong>
-      ${escapeHTML(data.restaurant)}
-    </p>
-
-    <p>
-      <strong>📝 ${labels.food}:</strong>
-      ${escapeHTML(data.food)}
-    </p>
-
-    <p>
-      <strong>🔢 ${labels.quantity}:</strong>
-      ${escapeHTML(data.quantity)}
-    </p>
-
-    <p>
-      <strong>🏨 ${labels.hotel}:</strong>
-      ${escapeHTML(data.hotel)}
-    </p>
-
-    <p>
-      <strong>🚪 ${labels.room}:</strong>
-      ${escapeHTML(
-        data.room ||
-        (arabic ? "غير محدد" : "Not provided")
-      )}
-    </p>
-
-    <p>
-      <strong>📍 ${labels.location}:</strong>
-      ${escapeHTML(data.location)}
-    </p>
-
-    <p>
-      <strong>🕐 ${labels.delivery}:</strong>
-      ${escapeHTML(
-        data.deliveryTime ||
-        (arabic ? "في أقرب وقت" : "As soon as possible")
-      )}
-    </p>
-
-    <p>
-      <strong>📌 ${labels.instructions}:</strong>
-      ${escapeHTML(
-        data.notes ||
-        (arabic ? "لا توجد" : "None")
-      )}
-    </p>
-
-    <p>
-      <strong>💰 ${labels.fee}:</strong>
-      ${
-        arabic
-          ? "تبدأ من 30 ريال"
-          : "Starting from 30 SAR"
-      }
-    </p>
-
-  `;
+    const t = translations[lang];
 
 
-  document
-    .getElementById("summaryContent")
-    .innerHTML = summary;
+    const name =
+      document.getElementById("customerName")?.value.trim() || "";
+
+    const restaurant =
+      document.getElementById("restaurant")?.value.trim() || "";
+
+    const food =
+      document.getElementById("foodOrder")?.value.trim() || "";
+
+    const hotel =
+      document.getElementById("hotelName")?.value.trim() || "";
+
+    const room =
+      document.getElementById("roomNumber")?.value.trim() || "";
+
+    const location =
+      document.getElementById("location")?.value.trim() || "";
+
+    const phone =
+      document.getElementById("phone")?.value.trim() || "";
+
+    const notes =
+      document.getElementById("notes")?.value.trim() || "";
 
 
-  document
-    .getElementById("orderSummary")
-    .style.display = "block";
+    /* Validation */
+
+    if (!name) {
+      alert(t.alertName);
+      return;
+    }
+
+    if (!restaurant) {
+      alert(t.alertRestaurant);
+      return;
+    }
+
+    if (!food) {
+      alert(t.alertFood);
+      return;
+    }
+
+    if (!hotel) {
+      alert(t.alertHotel);
+      return;
+    }
+
+    if (!room) {
+      alert(t.alertRoom);
+      return;
+    }
+
+    if (!location) {
+      alert(t.alertLocation);
+      return;
+    }
+
+    if (!phone) {
+      alert(t.alertPhone);
+      return;
+    }
 
 
-  document
-    .getElementById("orderSummary")
-    .scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
+    /* Restaurant display */
+
+    let restaurantName = restaurant;
+
+    if (restaurant.toLowerCase().includes("baik")) {
+      restaurantName =
+        lang === "ar" ? "البيك" : "Al Baik";
+    }
+
+    else if (restaurant.toLowerCase().includes("mcdonald")) {
+      restaurantName =
+        lang === "ar" ? "ماكدونالدز" : "McDonald's";
+    }
+
+    else if (restaurant.toLowerCase().includes("tazaj")) {
+      restaurantName =
+        lang === "ar" ? "الطازج" : "Al Tazaj";
+    }
+
+    else if (restaurant.toLowerCase().includes("kudu")) {
+      restaurantName =
+        lang === "ar" ? "كودو" : "Kudu";
+    }
+
+    else if (
+      restaurant.toLowerCase().includes("romans")
+    ) {
+      restaurantName =
+        lang === "ar" ? "الرومانسية" : "Al Romansiah";
+    }
+
+
+    /* WhatsApp message */
+
+    let message = "";
+
+
+    if (lang === "ar") {
+
+      message =
+`🍽️ *طلب توصيل طعام جديد*
+
+👤 الاسم: ${name}
+
+🍴 المطعم: ${restaurantName}
+
+🍔 الطلب:
+${food}
+
+🏨 الفندق: ${hotel}
+
+🚪 رقم الغرفة: ${room}
+
+📍 موقع التوصيل: ${location}
+
+📱 رقم واتساب: ${phone}
+
+📝 ملاحظات:
+${notes || "لا توجد"}
+
+💰 رسوم الخدمة تبدأ من 30 ريال
+سعر الطعام منفصل.
+
+شكراً لاستخدام Makkah Delivery Hub.`;
+
+    }
+
+    else {
+
+      message =
+`🍽️ *New Food Delivery Order*
+
+👤 Name: ${name}
+
+🍴 Restaurant: ${restaurantName}
+
+🍔 Food Order:
+${food}
+
+🏨 Hotel: ${hotel}
+
+🚪 Room Number: ${room}
+
+📍 Delivery Location: ${location}
+
+📱 WhatsApp Number: ${phone}
+
+📝 Notes:
+${notes || "None"}
+
+💰 Service fee starts from 30 SAR
+Food cost is separate.
+
+Thank you for using Makkah Delivery Hub.`;
+
+    }
+
+
+    /* Open WhatsApp */
+
+    const whatsappURL =
+      "https://wa.me/" +
+      WHATSAPP_NUMBER +
+      "?text=" +
+      encodeURIComponent(message);
+
+
+    window.open(whatsappURL, "_blank");
+
+
+    /* Optional confirmation */
+
+    setTimeout(function() {
+
+      alert(
+        t.successTitle +
+        "\n\n" +
+        t.successText
+      );
+
+    }, 500);
+
+  });
+
 }
 
 
-function sendOrder() {
+/* =========================================================
+   INIT
+   ========================================================= */
 
-  const data =
-    getOrderData();
+function init() {
 
+  const savedLanguage =
+    localStorage.getItem(LANGUAGE_KEY);
 
-  if (!validateOrder(data)) {
-    return;
-  }
+  const language =
+    savedLanguage === "ar" ? "ar" : "en";
 
+  applyLanguage(language);
 
-  const message = arabic
+  setupLanguageToggle();
 
-    ? `🍔 طلب توصيل طعام جديد
+  setupOrderForm();
 
-━━━━━━━━━━━━━━━━━━━━
-
-👤 العميل
-
-الاسم: ${data.name}
-
-الواتساب: ${data.phone}
-
-🍽️ المطعم
-
-${data.restaurant}
-
-📝 طلب الطعام
-
-${data.food}
-
-🔢 الكمية
-
-${data.quantity}
-
-🏨 موقع التوصيل
-
-الفندق: ${data.hotel}
-
-الغرفة: ${data.room || "غير محدد"}
-
-📍 Google Maps / العنوان
-
-${data.location}
-
-🕐 وقت التوصيل المفضل
-
-${data.deliveryTime || "في أقرب وقت"}
-
-📌 ملاحظات إضافية
-
-${data.notes || "لا توجد"}
-
-━━━━━━━━━━━━━━━━━━━━
-
-💰 رسوم الخدمة
-
-تبدأ من 30 ريال
-
-سعر الطعام: منفصل
-
-━━━━━━━━━━━━━━━━━━━━
-
-Makkah Delivery Hub`
-
-    : `🍔 NEW FOOD DELIVERY ORDER
-
-━━━━━━━━━━━━━━━━━━━━
-
-👤 CUSTOMER
-
-Name: ${data.name}
-
-WhatsApp: ${data.phone}
-
-🍽️ RESTAURANT
-
-${data.restaurant}
-
-📝 FOOD ORDER
-
-${data.food}
-
-🔢 QUANTITY
-
-${data.quantity}
-
-🏨 DELIVERY LOCATION
-
-Hotel: ${data.hotel}
-
-Room: ${data.room || "Not provided"}
-
-📍 GOOGLE MAPS / ADDRESS
-
-${data.location}
-
-🕐 PREFERRED DELIVERY TIME
-
-${data.deliveryTime || "As soon as possible"}
-
-📌 SPECIAL INSTRUCTIONS
-
-${data.notes || "None"}
-
-━━━━━━━━━━━━━━━━━━━━
-
-💰 SERVICE FEE
-
-Starting from 30 SAR
-
-Food price: Separate
-
-━━━━━━━━━━━━━━━━━━━━
-
-Makkah Delivery Hub`;
+}
 
 
-  const whatsappURL =
-    "https://wa.me/966550865064?text=" +
-    encodeURIComponent(message);
+/* =========================================================
+   START
+   ========================================================= */
 
+if (document.readyState === "loading") {
 
-  window.open(
-    whatsappURL,
-    "_blank",
-    "noopener,noreferrer"
+  document.addEventListener(
+    "DOMContentLoaded",
+    init
   );
+
+} else {
+
+  init();
+
 }
-
-
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-    applyLanguage();
-  }
-);
