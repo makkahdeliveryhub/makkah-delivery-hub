@@ -639,3 +639,33 @@ html[dir="rtl"] .section-head{text-align:center;}
   .restaurants-grid{grid-template-columns:1fr;}
   .areas-grid{grid-template-columns:1fr 1fr;}
 }
+
+/* =========================================================
+   ARABIC THEME TEXT FIX
+   ========================================================= */
+
+body.rtl .food-icon::after{
+  content:"توصيل الطعام";
+}
+
+body:not(.rtl) .food-icon::after{
+  content:"Food Delivery";
+}
+
+/* =========================================================
+   IMAGE CREDIT
+   ========================================================= */
+
+.image-credit{
+  margin-top:8px;
+  font-size:11px !important;
+  opacity:.75;
+}
+
+.image-credit a{
+  display:inline !important;
+  width:auto !important;
+  margin:0 !important;
+  color:inherit !important;
+  text-decoration:underline !important;
+}
